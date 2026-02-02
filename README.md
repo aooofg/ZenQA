@@ -28,6 +28,53 @@
 
 ---
 
+## 🛠 Deployment & Quick Start
+
+The system is fully containerized using Docker and Nginx. This ensures a consistent environment for both the frontend (Svelte 5) and the backend (PocketBase).
+
+### 1. Prerequisites
+- [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
+
+### 2. Setup Environment
+Clone the repository and create a `.env` file in the root directory:
+```bash
+git clone https://github.com/Rostezkiy/ZenQA.git
+cd ZenQA
+touch .env
+```
+
+Add the following variables to `.env`:
+```env
+# PocketBase Admin Credentials (for the first run)
+PB_ADMIN_EMAIL=admin@example.com
+PB_ADMIN_PASSWORD=your_secure_password
+PB_ENCRYPTION_KEY=your_random_secret_key
+
+# App Configuration
+APP_ORIGIN=http://localhost:8080
+```
+
+### 3. Launch via Docker Compose
+Run the following command to build and start all services (Backend, Frontend, and Nginx Proxy):
+```bash
+docker compose up -d
+```
+
+### 4. Initial Configuration
+1.  **PocketBase Admin:** Access the database dashboard at `http://localhost:8080/_/`. Use the credentials from your `.env` file.
+2.  **User Creation:** In the PocketBase Admin UI, navigate to the `users` collection and create a new record. This user will be used to log in to the ZenQA application.
+3.  **Application Access:** Open `http://localhost:8080` to start using ZenQA.
+
+---
+
+## 🏗 System Architecture (Containers)
+- **Nginx Proxy (`port 8080`):** Acts as a gateway, routing `/api/` and `/_/` to the backend and all other requests to the Svelte 5 frontend.
+- **Svelte 5 Frontend:** Optimized Node.js build running on port 3000.
+- **PocketBase Backend:** Go-based BaaS running on port 8090, featuring automated superuser upsert on first run and persistent data storage via Docker volumes.
+
+---
+
+
 ## ✅ Current Implementation (Feature Set)
 
 ### 1. Core & Personalization
