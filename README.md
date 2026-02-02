@@ -1,5 +1,7 @@
 # 🧪 ZenQA | Radical Minimalism Test Management
 
+[![Docker Image CI](https://github.com/Rostezkiy/ZenQA/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Rostezkiy/ZenQA/actions/workflows/docker-image.yml)
+
 **ZenQA** is a high-performance, radically minimalist Test Management System (TMS) engineered with an "IDE-like" philosophy. Designed for speed, it eliminates interface clutter to keep testers in the flow state, featuring a unique multi-skin architecture.
 
 ## 🚀 Core Concept
