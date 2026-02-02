@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   БАЗОВЫЕ НАСТРОЙКИ (Fallback)
+   ========================================= */
+:root {
+  /* По умолчанию включаем Modern Light */
+  --col-primary: 37 99 235;
+  --col-primary-fg: 255 255 255; 
+  --col-danger: 220 38 38;
+  --col-success: 22 163 74;
+  --col-warning: 234 179 8;
+  --bg-main: 249 250 251;
+  --bg-surface: 255 255 255;
+  --bg-panel: 243 244 246;
+  --txt-main: 17 24 39;
+  --txt-muted: 107 114 128;
+  --col-border: 229 231 235;
+  --col-input: 255 255 255;
+  --radius: 0.5rem;
+  --border-width: 1px;
+  --shadow-neo: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-inset: none;
+}
+
+/* =========================================
+   ТЕМА: DARK MODE (.theme-dark)
+   ========================================= */
+.theme-dark {
+  --bg-main: 10 10 10;
+  --bg-surface: 23 23 23;
+  --bg-panel: 18 18 18;
+  --txt-main: 250 250 250;
+  --txt-muted: 163 163 163;
+  --col-border: 40 40 40;
+  --col-input: 23 23 23;
+  --col-primary: 59 130 246;
+  --shadow-neo: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+}
+
+/* =========================================
+   ТЕМА: WINDOWS 95 (.theme-win95)
+   ========================================= */
+.theme-win95 {
+  --col-primary: 0 0 128;       /* Navy Blue */
+  --col-primary-fg: 255 255 255; 
+  --col-danger: 168 0 0;
+  --col-success: 0 128 0;
+  --col-warning: 128 128 0;
+  --bg-main: 192 192 192;       /* Silver */
+  --bg-surface: 255 255 255;
+  --bg-panel: 192 192 192;
+  --txt-main: 0 0 0;
+  --txt-muted: 128 128 128;
+  --col-border: 128 128 128;
+  --col-input: 255 255 255;
+  --radius: 0px !important;
+  --border-width: 1px;
+  --shadow-neo: inset 1px 1px #dfdfdf, 1px 1px #000, inset -1px -1px #808080;
+  --shadow-inset: inset 1px 1px #000, 1px 1px #dfdfdf, inset -1px -1px #808080;
+}
+
+/* --- Специфические стили для Win95 (Behavior) --- */
+.theme-win95 body { background-color: #008080 !important; }
+
+.theme-win95 * { border-radius: 0 !important; }
+
+.theme-win95 aside, 
+.theme-win95 .bg-surface, 
+.theme-win95 .bg-panel, 
+.theme-win95 .bg-card {
+  box-shadow: var(--shadow-neo);
+  border: 1px solid #ffffff !important;
+  border-right-color: #808080 !important;
+  border-bottom-color: #808080 !important;
+}
+
+.theme-win95 input, .theme-win95 textarea, .theme-win95 select {
+  box-shadow: var(--shadow-inset) !important;
+  border: 1px solid #808080 !important;
+  border-right-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+}
+
+.theme-win95 button {
+  box-shadow: var(--shadow-neo) !important;
+  border: 1px solid #ffffff !important;
+  border-right-color: #000000 !important;
+  border-bottom-color: #000000 !important;
+  background-color: #c0c0c0 !important;
+  color: black !important;
+}
+
+.theme-win95 button:active:not(:disabled) {
+  box-shadow: var(--shadow-inset) !important;
+  border: 1px solid #000000 !important;
+  border-right-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  padding-top: 2px; padding-left: 2px;
+}
+
+/* Фикс вкладок для Win95 */
+.theme-win95 header {
+    background-color: rgb(var(--bg-panel)) !important;
+    border-bottom: 1px solid #808080 !important;
+}
+
+/* =========================================
+   ГЛОБАЛЬНЫЕ СБРОСЫ И СКРОЛЛБАР
+   ========================================= */
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: rgb(var(--bg-main));
+  color: rgb(var(--txt-main));
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--col-border));
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 99px;
+}
+
+/* Скроллбар для Win95 (шахматка) */
+.theme-win95 ::-webkit-scrollbar-track {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVQImWNgYGBoYGAEAAMCAf76mS9oAAAAAElFTkSuQmCC');
+  background-color: #dfdfdf;
+}
+.theme-win95 ::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  box-shadow: var(--shadow-neo);
+  border: 1px solid #ffffff;
+  border-radius: 0;
+}

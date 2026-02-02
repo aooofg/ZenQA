@@ -1,0 +1,51 @@
+services:
+  pocketbase:
+    image: r057/zenqa-backend:latest
+    build: ./pocketbase
+    container_name: zenqa-pocketbase
+    ports:
+      - "127.0.0.1:8090:8090"
+    restart: always
+    volumes:
+      - ./pb_data:/pb_data
+    environment:
+      - PB_ENCRYPTION_KEY=${PB_ENCRYPTION_KEY}
+      - PB_ADMIN_EMAIL=${PB_ADMIN_EMAIL}
+      - PB_ADMIN_PASSWORD=${PB_ADMIN_PASSWORD}
+    entrypoint: ["sh", "-c"]
+    command: >
+      "if [ ! -f /pb_data/data.db ]; then
+        echo 'First run: initializing database...';
+        echo 'Creating superuser: '$$PB_ADMIN_EMAIL;
+        pocketbase superuser upsert $$PB_ADMIN_EMAIL $$PB_ADMIN_PASSWORD --dir /pb_data;
+      fi;
+      
+      echo 'Starting PocketBase...';
+      pocketbase serve --http=0.0.0.0:8090 --dir /pb_data"
+
+  frontend:
+    image: r057/zenqa-frontend:latest
+    build: ./frontend
+    container_name: zenqa-frontend
+    restart: always
+    environment:
+      - ORIGIN=${APP_ORIGIN}
+      - PORT=3000
+      - HOST=0.0.0.0
+    depends_on:
+      - pocketbase
+
+  nginx:
+    image: nginx:alpine
+    container_name: zenqa-proxy
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - pocketbase
+      - frontend
+
+volumes:
+  pb_data:
